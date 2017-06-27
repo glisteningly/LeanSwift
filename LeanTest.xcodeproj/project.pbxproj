@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34BED35301B9B4D86B7BEB5F /* Pods_LeanTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DB1679A909471404D4E6243 /* Pods_LeanTest.framework */; };
 		B90425F31EF82FAB0097F495 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90425F21EF82FAB0097F495 /* AppDelegate.swift */; };
-		B90425F51EF82FAB0097F495 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90425F41EF82FAB0097F495 /* ViewController.swift */; };
-		B90425F81EF82FAB0097F495 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90425F61EF82FAB0097F495 /* Main.storyboard */; };
 		B90425FA1EF82FAB0097F495 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B90425F91EF82FAB0097F495 /* Assets.xcassets */; };
-		B90425FD1EF82FAB0097F495 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B90425FB1EF82FAB0097F495 /* LaunchScreen.storyboard */; };
 		B90426081EF82FAB0097F495 /* LeanTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90426071EF82FAB0097F495 /* LeanTestTests.swift */; };
 		B90426131EF82FAB0097F495 /* LeanTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90426121EF82FAB0097F495 /* LeanTestUITests.swift */; };
+		B91864111F00165400A5F008 /* miku2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B91864101F00165400A5F008 /* miku2.jpg */; };
+		B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */; };
+		B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */; };
+		B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */; };
+		B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1C1F02B4B000531332 /* Main.storyboard */; };
+		B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,12 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		833399F5A3C0815CAC36E09C /* Pods-LeanTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest.release.xcconfig"; sourceTree = "<group>"; };
+		8DB1679A909471404D4E6243 /* Pods_LeanTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LeanTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90425EF1EF82FAB0097F495 /* LeanTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeanTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90425F21EF82FAB0097F495 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B90425F41EF82FAB0097F495 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B90425F71EF82FAB0097F495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B90425F91EF82FAB0097F495 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B90425FC1EF82FAB0097F495 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B90425FE1EF82FAB0097F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B90426031EF82FAB0097F495 /* LeanTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeanTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90426071EF82FAB0097F495 /* LeanTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTestTests.swift; sourceTree = "<group>"; };
@@ -47,6 +50,14 @@
 		B904260E1EF82FAB0097F495 /* LeanTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeanTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B90426121EF82FAB0097F495 /* LeanTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanTestUITests.swift; sourceTree = "<group>"; };
 		B90426141EF82FAB0097F495 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B91864101F00165400A5F008 /* miku2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miku2.jpg; sourceTree = "<group>"; };
+		B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		B97AAB4D1EF97E9A00863643 /* LeanTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B9B8BA1C1F02B4B000531332 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BED35301B9B4D86B7BEB5F /* Pods_LeanTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +86,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C59385F44784FC684446BC5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */,
+				833399F5A3C0815CAC36E09C /* Pods-LeanTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		ADC6F61C8B0EC722741AE452 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DB1679A909471404D4E6243 /* Pods_LeanTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B90425E61EF82FAB0097F495 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +110,8 @@
 				B90426061EF82FAB0097F495 /* LeanTestTests */,
 				B90426111EF82FAB0097F495 /* LeanTestUITests */,
 				B90425F01EF82FAB0097F495 /* Products */,
+				6C59385F44784FC684446BC5 /* Pods */,
+				ADC6F61C8B0EC722741AE452 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +128,16 @@
 		B90425F11EF82FAB0097F495 /* LeanTest */ = {
 			isa = PBXGroup;
 			children = (
+				B91864101F00165400A5F008 /* miku2.jpg */,
 				B90425F21EF82FAB0097F495 /* AppDelegate.swift */,
-				B90425F41EF82FAB0097F495 /* ViewController.swift */,
-				B90425F61EF82FAB0097F495 /* Main.storyboard */,
 				B90425F91EF82FAB0097F495 /* Assets.xcassets */,
-				B90425FB1EF82FAB0097F495 /* LaunchScreen.storyboard */,
 				B90425FE1EF82FAB0097F495 /* Info.plist */,
+				B97AAB4D1EF97E9A00863643 /* LeanTest-Bridging-Header.h */,
+				B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */,
+				B9B8BA1C1F02B4B000531332 /* Main.storyboard */,
+				B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */,
+				B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */,
+				B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */,
 			);
 			path = LeanTest;
 			sourceTree = "<group>";
@@ -132,9 +167,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B90426171EF82FAB0097F495 /* Build configuration list for PBXNativeTarget "LeanTest" */;
 			buildPhases = (
+				F2B56BEA0CFC1BBEE3636FF6 /* [CP] Check Pods Manifest.lock */,
 				B90425EB1EF82FAB0097F495 /* Sources */,
 				B90425EC1EF82FAB0097F495 /* Frameworks */,
 				B90425ED1EF82FAB0097F495 /* Resources */,
+				60F5CE99EE8709A534A44535 /* [CP] Embed Pods Frameworks */,
+				B71729868C6B949F56045BAE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +231,8 @@
 				TargetAttributes = {
 					B90425EE1EF82FAB0097F495 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = GWHBTBQ4T8;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					B90426021EF82FAB0097F495 = {
@@ -232,9 +272,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B90425FD1EF82FAB0097F495 /* LaunchScreen.storyboard in Resources */,
+				B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */,
+				B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */,
+				B91864111F00165400A5F008 /* miku2.jpg in Resources */,
 				B90425FA1EF82FAB0097F495 /* Assets.xcassets in Resources */,
-				B90425F81EF82FAB0097F495 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,13 +295,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		60F5CE99EE8709A534A44535 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B71729868C6B949F56045BAE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B56BEA0CFC1BBEE3636FF6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B90425EB1EF82FAB0097F495 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B90425F51EF82FAB0097F495 /* ViewController.swift in Sources */,
+				B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */,
+				B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */,
 				B90425F31EF82FAB0097F495 /* AppDelegate.swift in Sources */,
+				B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +385,6 @@
 			targetProxy = B904260F1EF82FAB0097F495 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		B90425F61EF82FAB0097F495 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B90425F71EF82FAB0097F495 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B90425FB1EF82FAB0097F495 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B90425FC1EF82FAB0097F495 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B90426151EF82FAB0097F495 /* Debug */ = {
@@ -412,25 +484,38 @@
 		};
 		B90426181EF82FAB0097F495 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = GWHBTBQ4T8;
 				INFOPLIST_FILE = LeanTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arex.LeanTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeanTest/LeanTest-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		B90426191EF82FAB0097F495 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 833399F5A3C0815CAC36E09C /* Pods-LeanTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = GWHBTBQ4T8;
 				INFOPLIST_FILE = LeanTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.arex.LeanTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "LeanTest/LeanTest-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -507,6 +592,7 @@
 				B90426191EF82FAB0097F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B904261A1EF82FAB0097F495 /* Build configuration list for PBXNativeTarget "LeanTestTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +601,7 @@
 				B904261C1EF82FAB0097F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B904261D1EF82FAB0097F495 /* Build configuration list for PBXNativeTarget "LeanTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +610,7 @@
 				B904261F1EF82FAB0097F495 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

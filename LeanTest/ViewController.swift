@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let post = AVObject(className: "TestObject")
+        post.setObject("Hello Swift!", forKey: "words")
+        post.save()
     }
 
     override func didReceiveMemoryWarning() {
