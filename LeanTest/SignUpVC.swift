@@ -56,9 +56,9 @@ class SignUpVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-//    当键盘出现或消失时调用
+//当键盘出现或消失时调用
     func showKeyboard(notification: Notification){
-//        定义keyboard大小
+//定义keyboard大小
         let rect = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         keyboard = rect.cgRectValue
         
