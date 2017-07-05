@@ -7,21 +7,54 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class ResetPasswordVC: UIViewController {
-
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var resetBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func resetBtn_clicked(_ sender: UIButton) {
+        self.view.endEditing(true)
+        
+        if emailTxt.text!.isEmpty {
+            let alert = UIAlertController(title: "请注意", message: "邮件地址不能为空", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        tryResetPassword()
+    }
+    
+    func tryResetPassword() {
+        AVUser.requestPasswordResetForEmail(inBackground: emailTxt.text!) {
+            (success: Bool, error: Error?) in
+            if success {
+                let alert = UIAlertController(title: "请注意", message: "重置密码链接已经发送到你的电子邮箱", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+                return
+            } else {
+                print(error?.localizedDescription ?? "密码重置失败")
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

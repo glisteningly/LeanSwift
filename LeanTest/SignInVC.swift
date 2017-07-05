@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class SignInVC: UIViewController {
+    @IBOutlet weak var logoLabel: UILabel!
     
+    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var usernameTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var signInBtn: UIButton!
@@ -18,8 +21,12 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initView()
         // Do any additional setup after loading the view.
+    }
+    
+    func initView() {
+        label.font = UIFont(name: "Pacifico", size: 40)
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,6 +36,38 @@ class SignInVC: UIViewController {
 
     @IBAction func signInBtn_clicked(_ sender: UIButton) {
         print("SignIn clicked!")
+        
+        self.view.endEditing(true)
+        if usernameTxt.text!.isEmpty || passwordTxt.text!.isEmpty {
+            let alert = UIAlertController(title: "请注意", message: "用户名或密码未填写", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(ok)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        trySignIn()
+    }
+    
+    func trySignIn() {
+        AVUser.logInWithUsername(inBackground: usernameTxt.text!, password: passwordTxt.text!) {
+            (user: AVUser?, error: Error?) in
+            if error == nil {
+                print("登陆成功")
+                
+                //记住用户
+                UserDefaults.standard.set(user?.username, forKey: "username")
+                UserDefaults.standard.synchronize()
+                
+                //调用AppDelegate类的login方法
+                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                appDelegate.login()
+            } else {
+                print("#######")
+                print(error?.localizedDescription ?? "登录失败")
+                print("#######")
+            }
+        }
     }
     
     
@@ -43,3 +82,4 @@ class SignInVC: UIViewController {
      */
     
 }
+

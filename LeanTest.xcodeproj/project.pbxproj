@@ -16,8 +16,14 @@
 		B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */; };
 		B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */; };
 		B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */; };
+		B9B70D471F0A8212006BC801 /* bg_login.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B70D461F0A8212006BC801 /* bg_login.png */; };
+		B9B70D491F0A9976006BC801 /* user.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B9B70D481F0A9976006BC801 /* user.jpeg */; };
+		B9B70D4B1F0A9AFA006BC801 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B70D4A1F0A9AFA006BC801 /* HomeVC.swift */; };
+		B9B70D4D1F0A9B43006BC801 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B70D4C1F0A9B43006BC801 /* HeaderView.swift */; };
+		B9B70D4F1F0A9E41006BC801 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B70D4E1F0A9E41006BC801 /* PictureCell.swift */; };
 		B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1C1F02B4B000531332 /* Main.storyboard */; };
 		B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */; };
+		B9DD83731F095FCD00FDC93A /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9DD83721F095FCC00FDC93A /* Pacifico.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +61,14 @@
 		B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		B97AAB4D1EF97E9A00863643 /* LeanTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		B9B70D461F0A8212006BC801 /* bg_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_login.png; path = "../../../Documents/UI/Affinity/素材/Abstract-background-blue-tones/bg_login.png"; sourceTree = "<group>"; };
+		B9B70D481F0A9976006BC801 /* user.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = user.jpeg; path = "../../../Pictures/素材/icon/png/user.jpeg"; sourceTree = "<group>"; };
+		B9B70D4A1F0A9AFA006BC801 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		B9B70D4C1F0A9B43006BC801 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		B9B70D4E1F0A9E41006BC801 /* PictureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
 		B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B8BA1C1F02B4B000531332 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B9DD83721F095FCC00FDC93A /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "../../../Downloads/software/字体/pacifico/Pacifico.ttf"; sourceTree = "<group>"; };
 		BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,9 +140,12 @@
 		B90425F11EF82FAB0097F495 /* LeanTest */ = {
 			isa = PBXGroup;
 			children = (
+				B9B70D481F0A9976006BC801 /* user.jpeg */,
+				B9DD83721F095FCC00FDC93A /* Pacifico.ttf */,
 				B91864101F00165400A5F008 /* miku2.jpg */,
 				B90425F21EF82FAB0097F495 /* AppDelegate.swift */,
 				B90425F91EF82FAB0097F495 /* Assets.xcassets */,
+				B9B70D461F0A8212006BC801 /* bg_login.png */,
 				B90425FE1EF82FAB0097F495 /* Info.plist */,
 				B97AAB4D1EF97E9A00863643 /* LeanTest-Bridging-Header.h */,
 				B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */,
@@ -138,6 +153,9 @@
 				B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */,
 				B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */,
 				B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */,
+				B9B70D4A1F0A9AFA006BC801 /* HomeVC.swift */,
+				B9B70D4C1F0A9B43006BC801 /* HeaderView.swift */,
+				B9B70D4E1F0A9E41006BC801 /* PictureCell.swift */,
 			);
 			path = LeanTest;
 			sourceTree = "<group>";
@@ -273,8 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */,
+				B9DD83731F095FCD00FDC93A /* Pacifico.ttf in Resources */,
+				B9B70D491F0A9976006BC801 /* user.jpeg in Resources */,
 				B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */,
 				B91864111F00165400A5F008 /* miku2.jpg in Resources */,
+				B9B70D471F0A8212006BC801 /* bg_login.png in Resources */,
 				B90425FA1EF82FAB0097F495 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,8 +370,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */,
+				B9B70D4D1F0A9B43006BC801 /* HeaderView.swift in Sources */,
+				B9B70D4B1F0A9AFA006BC801 /* HomeVC.swift in Sources */,
 				B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */,
 				B90425F31EF82FAB0097F495 /* AppDelegate.swift in Sources */,
+				B9B70D4F1F0A9E41006BC801 /* PictureCell.swift in Sources */,
 				B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

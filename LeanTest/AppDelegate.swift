@@ -8,6 +8,7 @@
 
 import UIKit
 import AVOSCloud
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // applicationId 即 App Id，applicationKey 是 App Key
         AVOSCloud.setApplicationId("IoCtWYqG7soFL0xsuELkjkGO-gzGzoHsz", clientKey: "nLO6RCS17tyCYjy3Jjo1A6gY")
         AVAnalytics.trackAppOpened(launchOptions: launchOptions)
+        IQKeyboardManager.sharedManager().enable = true
+        
+//        login()
         return true
+    }
+    
+    func login() {
+        let username: String? = UserDefaults.standard.string(forKey: "username")
+        
+        if username != nil {
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let myTabBar = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
+            window?.rootViewController = myTabBar
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
