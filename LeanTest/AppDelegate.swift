@@ -35,8 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let myTabBar = storyboard.instantiateViewController(withIdentifier: "TabBar") as! UITabBarController
             window?.rootViewController = myTabBar
         }
+        
+//        followTest()
     }
-
+    
+    func followTest() {
+        AVUser.current()?.follow("59577f07ac502e006be2ae54", andCallback: { (success: Bool, error: Error?) in
+            if success {
+                print("为当前用户添加关注者成功")
+            } else {
+                print("为当前用户添加关注者失败")
+            }
+        })
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

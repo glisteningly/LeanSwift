@@ -24,6 +24,8 @@
 		B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1C1F02B4B000531332 /* Main.storyboard */; };
 		B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */; };
 		B9DD83731F095FCD00FDC93A /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9DD83721F095FCC00FDC93A /* Pacifico.ttf */; };
+		B9F0ED441F125593007FB79A /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0ED431F125593007FB79A /* FollowersVC.swift */; };
+		B9F0ED461F1255F8007FB79A /* FollowersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0ED451F1255F8007FB79A /* FollowersCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		B9B8BA1B1F02B4B000531332 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B8BA1C1F02B4B000531332 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B9DD83721F095FCC00FDC93A /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "../../../Downloads/software/字体/pacifico/Pacifico.ttf"; sourceTree = "<group>"; };
+		B9F0ED431F125593007FB79A /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
+		B9F0ED451F1255F8007FB79A /* FollowersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCell.swift; sourceTree = "<group>"; };
 		BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,8 @@
 				B9B70D4A1F0A9AFA006BC801 /* HomeVC.swift */,
 				B9B70D4C1F0A9B43006BC801 /* HeaderView.swift */,
 				B9B70D4E1F0A9E41006BC801 /* PictureCell.swift */,
+				B9F0ED431F125593007FB79A /* FollowersVC.swift */,
+				B9F0ED451F1255F8007FB79A /* FollowersCell.swift */,
 			);
 			path = LeanTest;
 			sourceTree = "<group>";
@@ -371,9 +377,11 @@
 			files = (
 				B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */,
 				B9B70D4D1F0A9B43006BC801 /* HeaderView.swift in Sources */,
+				B9F0ED441F125593007FB79A /* FollowersVC.swift in Sources */,
 				B9B70D4B1F0A9AFA006BC801 /* HomeVC.swift in Sources */,
 				B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */,
 				B90425F31EF82FAB0097F495 /* AppDelegate.swift in Sources */,
+				B9F0ED461F1255F8007FB79A /* FollowersCell.swift in Sources */,
 				B9B70D4F1F0A9E41006BC801 /* PictureCell.swift in Sources */,
 				B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */,
 			);

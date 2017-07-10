@@ -101,12 +101,16 @@ class SignUpVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             if success {
                 print("注册成功")
                 
-                //保存用户信息
-                UserDefaults.standard.set(user.username, forKey: "username")
-                UserDefaults.standard.synchronize()
-                
-                let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.login()
+                AVUser.logInWithUsername(inBackground: user.username!, password: user.password!, block: { (user: AVUser?, error: Error?) in
+                    if let user = user {
+                        //保存用户信息
+                        UserDefaults.standard.set(user.username, forKey: "username")
+                        UserDefaults.standard.synchronize()
+                        
+                        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.login()
+                    }
+                })
             } else {
                 print(error?.localizedDescription ?? "注册失败")
             }

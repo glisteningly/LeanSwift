@@ -92,7 +92,7 @@ class HomeVC: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return picArray.count
+        return picArray.count * 20
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -100,7 +100,8 @@ class HomeVC: UICollectionViewController {
         //从集合视图的可复用队列中获取单元格对象
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureCell
         
-        picArray[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
+//        picArray[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
+        picArray[0].getDataInBackground { (data: Data?, error: Error?) in
             if error == nil {
                 cell.picImg.image = UIImage(data: data!)
             } else {
@@ -125,14 +126,83 @@ class HomeVC: UICollectionViewController {
         //获取用户头像
         let avaQuery = AVUser.current()?.object(forKey: "ava") as? AVFile
         avaQuery?.getDataInBackground { (data: Data?, error: Error?) in
-            header.avaImg.image = UIImage(data: data!)
+            if data == nil {
+                print(error?.localizedDescription ?? "无法获取头像")
+            } else {
+                header.avaImg.image = UIImage(data: data!)
+            }
         }
+        
+        //获取帖子数
+        let currentUser: AVUser = AVUser.current()!
+        let postsQuery = AVQuery(className: "Posts")
+        postsQuery.whereKey("username", equalTo: currentUser.username!)
+        postsQuery.countObjectsInBackground { (count: Int, error: Error?) in
+            if error == nil {
+                header.posts.text = String(count)
+            }
+        }
+        //获取用户关注数量
+        let followersQuery = AVQuery(className: "_Follower")
+        followersQuery.whereKey("user", equalTo: currentUser)
+        followersQuery.countObjectsInBackground { (count: Int, error: Error?) in
+            if error == nil {
+                header.followers.text = String(count)
+            }
+        }
+        //获取用户被关注数量
+        let followeesQuery = AVQuery(className: "_Followee")
+        followeesQuery.whereKey("user", equalTo: currentUser)
+        followeesQuery.countObjectsInBackground { (count: Int, error: Error?) in
+            if error == nil {
+                header.followings.text = String(count)
+            }
+        }
+        
+        //实现点击事件
+        //单击帖子数
+        let postsTap = UITapGestureRecognizer(target: self, action: #selector(postsTap(_:)))
+        postsTap.numberOfTapsRequired = 1
+        header.posts.isUserInteractionEnabled = true
+        header.posts.addGestureRecognizer(postsTap)
+        //单击关注者数
+        let followersTap = UITapGestureRecognizer(target: self, action: #selector(followersTap(_:)))
+        followersTap.numberOfTapsRequired = 1
+        header.followers.isUserInteractionEnabled = true
+        header.followers.addGestureRecognizer(followersTap)
+        //单击关注数
+        let followingsTap = UITapGestureRecognizer(target: self, action: #selector(followingsTap(_:)))
+        followingsTap.numberOfTapsRequired = 1
+        header.followings.isUserInteractionEnabled = true
+        header.followings.addGestureRecognizer(followingsTap)
         
         return header
     }
     
-    // MARK: UICollectionViewDelegate
-
+    func postsTap(_ recognizer: UITapGestureRecognizer) {
+        if !picArray.isEmpty {
+            let index = IndexPath(item: 0, section: 0)
+            self.collectionView?.scrollToItem(at: index, at: UICollectionViewScrollPosition.top, animated: true)
+            
+        }
+    }
+    
+    func followersTap(_ recognizer: UITapGestureRecognizer) {
+        let followers = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
+        followers.user = AVUser.current()!.username!
+        followers.show = "关注者"
+        self.navigationController?.pushViewController(followers, animated: true)
+    }
+    
+    func followingsTap(_ recognizer: UITapGestureRecognizer) {
+        let followings = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
+        followings.user = AVUser.current()!.username!
+        followings.show = "关注"
+        self.navigationController?.pushViewController(followings, animated: true)
+    }
+    
+// MARK: UICollectionViewDelegate
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {

@@ -407,6 +407,71 @@
             </objects>
             <point key="canvasLocation" x="2501.5999999999999" y="877.51124437781118"/>
         </scene>
+        <!--FollowersVC-->
+        <scene sceneID="Huk-JA-APC">
+            <objects>
+                <tableViewController storyboardIdentifier="FollowersVC" id="CkC-kw-eAV" customClass="FollowersVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="Gru-qZ-qxr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="80" id="pmy-me-H9o" customClass="FollowersCell" customModule="LeanTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmy-me-H9o" id="nTQ-FD-hWX">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="7qq-jA-rHx">
+                                            <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="rVq-be-KLc"/>
+                                                <constraint firstAttribute="height" constant="60" id="v3F-yS-fFi"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-QA-ygU">
+                                            <rect key="frame" x="78" y="29" width="76" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3A3-pp-Pwc">
+                                            <rect key="frame" x="267" y="25" width="100" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="zhN-yG-Hkn"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="followBtn_clicked:" destination="pmy-me-H9o" eventType="touchUpInside" id="RxF-xE-dKJ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="3A3-pp-Pwc" firstAttribute="centerY" secondItem="nTQ-FD-hWX" secondAttribute="centerY" id="7iX-cv-6TG"/>
+                                        <constraint firstItem="7qq-jA-rHx" firstAttribute="top" secondItem="nTQ-FD-hWX" secondAttribute="topMargin" constant="2" id="TgB-Vq-miE"/>
+                                        <constraint firstItem="3A3-pp-Pwc" firstAttribute="trailing" secondItem="nTQ-FD-hWX" secondAttribute="trailingMargin" id="akG-6D-EjE"/>
+                                        <constraint firstItem="ZaY-QA-ygU" firstAttribute="centerY" secondItem="nTQ-FD-hWX" secondAttribute="centerY" id="ghg-Hx-dYN"/>
+                                        <constraint firstItem="7qq-jA-rHx" firstAttribute="leading" secondItem="nTQ-FD-hWX" secondAttribute="leadingMargin" constant="2" id="phJ-fH-Qye"/>
+                                        <constraint firstItem="ZaY-QA-ygU" firstAttribute="leading" secondItem="7qq-jA-rHx" secondAttribute="trailing" constant="8" id="zXe-xS-aDX"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avaImg" destination="7qq-jA-rHx" id="Cwb-VB-yhW"/>
+                                    <outlet property="followBtn" destination="3A3-pp-Pwc" id="pc3-vp-9ic"/>
+                                    <outlet property="usernameLbl" destination="ZaY-QA-ygU" id="qkc-cD-hHc"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CkC-kw-eAV" id="GxL-np-1pf"/>
+                            <outlet property="delegate" destination="CkC-kw-eAV" id="jHW-PN-TpR"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHI-PW-5cZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3328.8000000000002" y="879.31034482758628"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6Xr-rO-Oei">
             <objects>
