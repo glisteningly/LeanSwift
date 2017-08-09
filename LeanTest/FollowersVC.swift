@@ -34,7 +34,9 @@ class FollowersVC: UITableViewController {
     }
     
     func loadFollowers() {
-        AVUser.current()?.getFollowers({ (followers: [Any]?, error: Error?) in
+        let user = guestArray.count > 0 ? guestArray.last!: AVUser.current()!
+        user.getFollowers({ (followers: [Any]?, error: Error?) in
+//        AVUser.current()?.getFollowers({ (followers: [Any]?, error: Error?) in
             if error == nil && followers != nil {
                 self.followerArray = followers! as! [AVUser]
                 //刷新表格视图
@@ -46,7 +48,9 @@ class FollowersVC: UITableViewController {
     }
     
     func loadFollowings() {
-        AVUser.current()?.getFollowees({ (followings: [Any]?, error: Error?) in
+        let user = guestArray.count > 0 ? guestArray.last!: AVUser.current()!
+        user.getFollowees({ (followings: [Any]?, error: Error?) in
+//        AVUser.current()?.getFollowees({ (followings: [Any]?, error: Error?) in
             if error == nil && followings != nil {
                 self.followerArray = followings! as! [AVUser]
                 //刷新表格视图
@@ -114,6 +118,22 @@ class FollowersVC: UITableViewController {
         }
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //通过indexPath获取用户所单击的单元格的用户对象
+        let cell = tableView.cellForRow(at: indexPath) as! FollowersCell
+        
+        //如果用户单击单元格 或进入HomeVC或进入GuestVC
+        if cell.usernameLbl.text == AVUser.current()?.username {
+            let home = storyboard?.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+            self.navigationController?.pushViewController(home, animated: true)
+        } else {
+            guestArray.append(followerArray[indexPath.row])
+            let guest = storyboard?.instantiateViewController(withIdentifier: "GuestVC") as! GuestVC
+            self.navigationController?.pushViewController(guest, animated: true)
+        }
+        
     }
     
     /*

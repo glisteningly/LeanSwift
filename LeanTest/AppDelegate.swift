@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = myTabBar
         }
         
-//        followTest()
+        followTest()
     }
     
     func followTest() {

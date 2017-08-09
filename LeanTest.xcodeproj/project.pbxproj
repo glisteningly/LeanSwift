@@ -26,6 +26,7 @@
 		B9DD83731F095FCD00FDC93A /* Pacifico.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B9DD83721F095FCC00FDC93A /* Pacifico.ttf */; };
 		B9F0ED441F125593007FB79A /* FollowersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0ED431F125593007FB79A /* FollowersVC.swift */; };
 		B9F0ED461F1255F8007FB79A /* FollowersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0ED451F1255F8007FB79A /* FollowersCell.swift */; };
+		B9F0ED481F165D46007FB79A /* GuestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F0ED471F165D46007FB79A /* GuestVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		B9DD83721F095FCC00FDC93A /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "../../../Downloads/software/字体/pacifico/Pacifico.ttf"; sourceTree = "<group>"; };
 		B9F0ED431F125593007FB79A /* FollowersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersVC.swift; sourceTree = "<group>"; };
 		B9F0ED451F1255F8007FB79A /* FollowersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersCell.swift; sourceTree = "<group>"; };
+		B9F0ED471F165D46007FB79A /* GuestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestVC.swift; sourceTree = "<group>"; };
 		BBCC6F200798C34AE3461EA9 /* Pods-LeanTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LeanTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LeanTest/Pods-LeanTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				B9B70D4E1F0A9E41006BC801 /* PictureCell.swift */,
 				B9F0ED431F125593007FB79A /* FollowersVC.swift */,
 				B9F0ED451F1255F8007FB79A /* FollowersCell.swift */,
+				B9F0ED471F165D46007FB79A /* GuestVC.swift */,
 			);
 			path = LeanTest;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				B9F0ED461F1255F8007FB79A /* FollowersCell.swift in Sources */,
 				B9B70D4F1F0A9E41006BC801 /* PictureCell.swift in Sources */,
 				B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */,
+				B9F0ED481F165D46007FB79A /* GuestVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
