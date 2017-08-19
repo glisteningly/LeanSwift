@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditVC: UIViewController {
     @IBOutlet weak var avaImg: UIImageView!
     @IBOutlet weak var fullnameTxt: UITextField!
     @IBOutlet weak var usernameTxt: UITextField!
