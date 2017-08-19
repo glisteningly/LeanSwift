@@ -11,7 +11,7 @@ import AVOSCloud
 
 //private let reuseIdentifier = "Cell"
 
-class HomeVC: UICollectionViewController {
+class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //刷新控件
     var refresher: UIRefreshControl!
     //每页载入帖子数量
@@ -34,6 +34,20 @@ class HomeVC: UICollectionViewController {
         self.collectionView?.alwaysBounceVertical = true
         
         loadPosts()
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        //退出登录
+        AVUser.logOut()
+        
+        //从UserDefaults中移除用户登录信息
+        UserDefaults.standard.removeObject(forKey: "username")
+        UserDefaults.standard.synchronize()
+        
+        //设置应用程序的rootViewController为登录控制器
+        let signIn = self.storyboard?.instantiateViewController(withIdentifier: "SignInVC")
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.window?.rootViewController = signIn
     }
     
     func refresh() {
@@ -89,6 +103,12 @@ class HomeVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return picArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let sideLength = self.view.frame.width / 3
+        let size = CGSize(width: sideLength, height: sideLength)
+        return size
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

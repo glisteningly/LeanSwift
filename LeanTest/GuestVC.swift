@@ -10,7 +10,7 @@ import UIKit
 import AVOSCloud
 
 var guestArray = [AVUser]()
-class GuestVC: UICollectionViewController {
+class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     //刷新控件
     var refresher: UIRefreshControl!
     //每页载入帖子数量
@@ -115,6 +115,12 @@ class GuestVC: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return picArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let sideLength = self.view.frame.width / 3
+        let size = CGSize(width: sideLength, height: sideLength)
+        return size
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
