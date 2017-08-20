@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var avaImg: UIImageView!
@@ -25,6 +26,9 @@ class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         super.viewDidLoad()
 
         initView()
+
+        //调用读取用户信息
+        getUserInfo()
     }
 
     func initView() {
@@ -46,7 +50,7 @@ class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         imgTap.numberOfTapsRequired = 1
         avaImg.isUserInteractionEnabled = true
         avaImg.addGestureRecognizer(imgTap)
-        
+
         //设置头像照片为圆角
         avaImg.layer.cornerRadius = avaImg.frame.width / 2
         avaImg.clipsToBounds = true
@@ -71,7 +75,17 @@ class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
     }
 
     @IBAction func save_clicked(_ sender: Any) {
+        //如果email地址错误
+        if !vaildateEmail(email: emailTxt.text!) {
+            alert(error: "错误的Email地址", message: "请检查并重新输入")
+            return
+        }
+
+        submitUserInfo()
     }
+
+
+
 
     @IBAction func cancel_clicked(_ sender: Any) {
         //隐藏虚拟键盘
@@ -98,14 +112,65 @@ class EditVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UI
         self.view.endEditing(true)
     }
 
-    /*
-    // MARK: - Navigation
+    //获取当前用户信息
+    func getUserInfo() {
+        let ava = AVUser.current()?.object(forKey: "ava") as! AVFile
+        ava.getDataInBackground { (data: Data?, error: Error?)in
+            self.avaImg.image = UIImage(data: data!)
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        usernameTxt.text = AVUser.current()?.username
+        fullnameTxt.text = AVUser.current()?.object(forKey: "fullname") as? String
+        bioTxt.text = AVUser.current()?.object(forKey: "bio") as? String
+        webTxt.text = AVUser.current()?.object(forKey: "web") as? String
+        emailTxt.text = AVUser.current()?.email
+        telTxt.text = AVUser.current()?.mobilePhoneNumber
+        genderTxt.text = AVUser.current()?.object(forKey: "gender") as? String
+
     }
-    */
 
+    func vaildateEmail(email: String) -> Bool {
+        let regex = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$"
+        let range = email.range(of: regex, options: .regularExpression)
+        let result = range != nil ? true : false
+        return result
+    }
+
+    func alert(error: String, message: String) {
+        let alert = UIAlertController(title: error, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func submitUserInfo() {
+        let user = AVUser.current()
+        user?.username = usernameTxt.text!
+        user?.email = emailTxt.text?.lowercased()
+        user?["fullname"] = fullnameTxt.text!
+        user?["web"] = webTxt.text!
+        user?["bio"] = bioTxt.text!
+
+        user?.mobilePhoneNumber = telTxt.text!.isEmpty ? "" : telTxt.text!
+        user?["gender"] = genderTxt.text!.isEmpty ? "" : genderTxt.text!
+
+        user?.saveInBackground({ (success: Bool, error: Error?)in
+            if success {
+                self.view.endEditing(true)
+                self.dismiss(animated: true, completion: nil)
+
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+            } else {
+                print(error?.localizedDescription ?? "用户信息保存失败")
+            }
+        })
+    }
 }
+
+
+
+
+
+
+
+

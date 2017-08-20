@@ -18,43 +18,49 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var page: Int = 12
     var puuidArray = [String]()
     var picArray = [AVFile]()
-    
-    
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.navigationItem.title = AVUser.current()?.username?.uppercased()
-        
+
         //设置refresher控件到集合视图中
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         collectionView?.addSubview(refresher)
-        
+
         //允许垂直的拉拽刷新操作
         self.collectionView?.alwaysBounceVertical = true
-        
+
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadUserInfo(notification:)), name: NSNotification.Name(rawValue: "reload"), object: nil)
+
         loadPosts()
     }
-    
+
+    func reloadUserInfo(notification: Notification) {
+        collectionView?.reloadData()
+    }
+
     @IBAction func logout(_ sender: Any) {
         //退出登录
         AVUser.logOut()
-        
+
         //从UserDefaults中移除用户登录信息
         UserDefaults.standard.removeObject(forKey: "username")
         UserDefaults.standard.synchronize()
-        
+
         //设置应用程序的rootViewController为登录控制器
         let signIn = self.storyboard?.instantiateViewController(withIdentifier: "SignInVC")
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.window?.rootViewController = signIn
     }
-    
+
     func refresh() {
         collectionView?.reloadData()
         refresher.endRefreshing()
     }
-    
+
     func loadPosts() {
         let query = AVQuery(className: "Posts")
         query.whereKey("username", equalTo: AVUser.current()?.username)
@@ -63,13 +69,13 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             if error == nil {
                 self.puuidArray.removeAll(keepingCapacity: false)
                 self.picArray.removeAll(keepingCapacity: false)
-                
+
                 //将查询到的数据添加到数组中
                 for object in objects! {
                     self.puuidArray.append((object as AnyObject).value(forKey: "puuid") as! String)
                     self.picArray.append((object as AnyObject).value(forKey: "pic") as! AVFile)
                 }
-                
+
                 self.collectionView?.reloadData()
             } else {
                 print(error?.localizedDescription ?? "查询失败")
@@ -98,13 +104,13 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-    
-    
+
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return picArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sideLength = self.view.frame.width / 3
         let size = CGSize(width: sideLength, height: sideLength)
@@ -112,10 +118,10 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+
         //从集合视图的可复用队列中获取单元格对象
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureCell
-        
+
         picArray[indexPath.row].getDataInBackground { (data: Data?, error: Error?) in
 //        picArray[0].getDataInBackground { (data: Data?, error: Error?) in
             if error == nil {
@@ -124,12 +130,12 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
                 print(error?.localizedDescription ?? "图片读取失败")
             }
         }
-        
+
         // Configure the cell
-        
+
         return cell
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = self.collectionView?.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! HeaderView
         //获取用户信息
@@ -138,7 +144,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         header.webTxt.sizeToFit()
         header.bioLbl.text = AVUser.current()?.object(forKey: "bio") as? String
         header.bioLbl.sizeToFit()
-        
+
         //获取用户头像
         let avaQuery = AVUser.current()?.object(forKey: "ava") as? AVFile
         avaQuery?.getDataInBackground { (data: Data?, error: Error?) in
@@ -148,7 +154,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
                 header.avaImg.image = UIImage(data: data!)
             }
         }
-        
+
         //获取帖子数
         let currentUser: AVUser = AVUser.current()!
         let postsQuery = AVQuery(className: "Posts")
@@ -174,7 +180,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
                 header.followings.text = String(count)
             }
         }
-        
+
         //实现点击事件
         //单击帖子数
         let postsTap = UITapGestureRecognizer(target: self, action: #selector(postsTap(_:)))
@@ -191,34 +197,34 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         followingsTap.numberOfTapsRequired = 1
         header.followings.isUserInteractionEnabled = true
         header.followings.addGestureRecognizer(followingsTap)
-        
+
         return header
     }
-    
+
     func postsTap(_ recognizer: UITapGestureRecognizer) {
         if !picArray.isEmpty {
             let index = IndexPath(item: 0, section: 0)
             self.collectionView?.scrollToItem(at: index, at: UICollectionViewScrollPosition.top, animated: true)
-            
+
         }
     }
-    
+
     func followersTap(_ recognizer: UITapGestureRecognizer) {
         let followers = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
         followers.user = AVUser.current()!.username!
         followers.show = "关注者"
         self.navigationController?.pushViewController(followers, animated: true)
     }
-    
+
     func followingsTap(_ recognizer: UITapGestureRecognizer) {
         let followings = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
         followings.user = AVUser.current()!.username!
         followings.show = "关注"
         self.navigationController?.pushViewController(followings, animated: true)
     }
-    
+
 // MARK: UICollectionViewDelegate
-    
+
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
