@@ -16,6 +16,8 @@
 		B9309EA01EFC001F00AE6E05 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */; };
 		B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */; };
 		B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */; };
+		B94C1D611F4B22E800C271F1 /* pbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B94C1D601F4B22E800C271F1 /* pbg.png */; };
+		B94C1D631F4B259600C271F1 /* UploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94C1D621F4B259600C271F1 /* UploadVC.swift */; };
 		B9AB34B21F45DA75000C1B54 /* EditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AB34B11F45DA75000C1B54 /* EditVC.swift */; };
 		B9B70D471F0A8212006BC801 /* bg_login.png in Resources */ = {isa = PBXBuildFile; fileRef = B9B70D461F0A8212006BC801 /* bg_login.png */; };
 		B9B70D491F0A9976006BC801 /* user.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B9B70D481F0A9976006BC801 /* user.jpeg */; };
@@ -64,6 +66,8 @@
 		B9309E9F1EFC001F00AE6E05 /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		B9309EA11EFC005D00AE6E05 /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		B9309EA31EFC008B00AE6E05 /* ResetPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		B94C1D601F4B22E800C271F1 /* pbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pbg.png; sourceTree = "<group>"; };
+		B94C1D621F4B259600C271F1 /* UploadVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadVC.swift; sourceTree = "<group>"; };
 		B97AAB4D1EF97E9A00863643 /* LeanTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LeanTest-Bridging-Header.h"; sourceTree = "<group>"; };
 		B9AB34B11F45DA75000C1B54 /* EditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVC.swift; sourceTree = "<group>"; };
 		B9B70D461F0A8212006BC801 /* bg_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_login.png; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				B9B70D481F0A9976006BC801 /* user.jpeg */,
 				B9DD83721F095FCC00FDC93A /* Pacifico.ttf */,
 				B91864101F00165400A5F008 /* miku2.jpg */,
+				B94C1D601F4B22E800C271F1 /* pbg.png */,
 				B90425F21EF82FAB0097F495 /* AppDelegate.swift */,
 				B90425F91EF82FAB0097F495 /* Assets.xcassets */,
 				B9B70D461F0A8212006BC801 /* bg_login.png */,
@@ -168,6 +173,7 @@
 				B9F0ED451F1255F8007FB79A /* FollowersCell.swift */,
 				B9F0ED471F165D46007FB79A /* GuestVC.swift */,
 				B9AB34B11F45DA75000C1B54 /* EditVC.swift */,
+				B94C1D621F4B259600C271F1 /* UploadVC.swift */,
 			);
 			path = LeanTest;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				B9B8BA1D1F02B70B00531332 /* Main.storyboard in Resources */,
 				B9DD83731F095FCD00FDC93A /* Pacifico.ttf in Resources */,
 				B9B70D491F0A9976006BC801 /* user.jpeg in Resources */,
+				B94C1D611F4B22E800C271F1 /* pbg.png in Resources */,
 				B9B8BA1E1F02B70E00531332 /* LaunchScreen.storyboard in Resources */,
 				B91864111F00165400A5F008 /* miku2.jpg in Resources */,
 				B9B70D471F0A8212006BC801 /* bg_login.png in Resources */,
@@ -398,6 +405,7 @@
 				B9B70D4B1F0A9AFA006BC801 /* HomeVC.swift in Sources */,
 				B9309EA21EFC005D00AE6E05 /* SignUpVC.swift in Sources */,
 				B90425F31EF82FAB0097F495 /* AppDelegate.swift in Sources */,
+				B94C1D631F4B259600C271F1 /* UploadVC.swift in Sources */,
 				B9F0ED461F1255F8007FB79A /* FollowersCell.swift in Sources */,
 				B9B70D4F1F0A9E41006BC801 /* PictureCell.swift in Sources */,
 				B9309EA41EFC008B00AE6E05 /* ResetPasswordVC.swift in Sources */,
