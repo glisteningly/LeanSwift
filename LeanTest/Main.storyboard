@@ -375,7 +375,7 @@
         <scene sceneID="bhx-Hp-k9f">
             <objects>
                 <collectionViewController storyboardIdentifier="HomeVC" id="Bbq-xm-VdL" customClass="HomeVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="KDo-0X-Kp9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KDo-0X-Kp9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -610,6 +610,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sLz-Gn-ImH"/>
+                    <connections>
+                        <outlet property="picImg" destination="sye-mA-HuR" id="gdS-6O-SvZ"/>
+                        <outlet property="publishBtn" destination="vfa-FH-ZY9" id="aIK-gm-ppN"/>
+                        <outlet property="titleText" destination="Q80-vz-ehV" id="3WX-K8-58K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3d-ed-nEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -684,7 +689,7 @@
         <scene sceneID="6Xr-rO-Oei">
             <objects>
                 <navigationController storyboardIdentifier="SignInVC" id="RQp-Z8-7D8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="chh-fp-Xmz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="chh-fp-Xmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -821,7 +826,7 @@
                 <navigationController title="主页" automaticallyAdjustsScrollViewInsets="NO" id="sUL-gI-tau" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="BRt-JJ-zh3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="997-yn-A63">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="997-yn-A63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -838,7 +843,7 @@
         <scene sceneID="Bpy-bC-zb5">
             <objects>
                 <collectionViewController storyboardIdentifier="GuestVC" id="zQH-Xy-rsd" customClass="GuestVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="OzG-X6-zLf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OzG-X6-zLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1023,7 +1028,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="39k-er-jmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1IM-SF-gaS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1IM-SF-gaS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1042,7 +1047,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s4R-Xj-4ag" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发布" id="qVm-YC-EO8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iOW-tO-pij">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOW-tO-pij">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
