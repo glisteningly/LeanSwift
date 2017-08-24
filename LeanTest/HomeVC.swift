@@ -34,12 +34,18 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         self.collectionView?.alwaysBounceVertical = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadUserInfo(notification:)), name: NSNotification.Name(rawValue: "reload"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(postUploaded(notification:)), name: NSNotification.Name(rawValue: "uploaded"), object: nil)
 
         loadPosts()
     }
 
     func reloadUserInfo(notification: Notification) {
         collectionView?.reloadData()
+    }
+    
+    func postUploaded(notification: Notification) {
+        loadPosts()
     }
 
     @IBAction func logout(_ sender: Any) {

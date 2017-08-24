@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import AVOSCloud
 
 class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var picImg: UIImageView!
     @IBOutlet weak var titleText: UITextView!
     @IBOutlet weak var publishBtn: UIButton!
+    @IBOutlet weak var removeBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,10 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         picTap.numberOfTapsRequired = 1
         picImg.addGestureRecognizer(picTap)
 
+        removeBtn.isHidden = true
+
+        picImg.image = UIImage(named: "pbg.png")
+        titleText.text = ""
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +58,9 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         //允许publishBtn
         publishBtn.isEnabled = true
         publishBtn.backgroundColor = UIColor.blue
+
+        //显示移除按钮
+        removeBtn.isHidden = false
 
         //实现二次单击放大图片
         unZoomedRect = self.picImg.frame
@@ -83,6 +92,42 @@ class UploadVC: UIViewController, UIImagePickerControllerDelegate, UINavigationC
             })
         }
 
+    }
+
+    @IBAction func publishBtn_clicked(_ sender: Any) {
+        self.view.endEditing(true)
+
+        let object = AVObject(className: "Posts")
+        object["username"] = AVUser.current()?.username
+        object["ava"] = AVUser.current()?.object(forKey: "ava") as! AVFile
+//        object["puuid"] = "\(String(describing: AVUser.current()?.username!)) \(NSUUID().uuidString)"
+        object["puuid"] = (AVUser.current()?.username)! + " " + NSUUID().uuidString
+
+        //titleText是否为空
+        if titleText.text.isEmpty {
+            object["title"] = ""
+        } else {
+            object["title"] = titleText.text.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+
+        //生成照片数据
+        let imageData = UIImageJPEGRepresentation(picImg.image!, 0.5)
+        let imageFile = AVFile(name: "post.jpg", data: imageData!)
+        object["pic"] = imageFile
+        object.saveInBackground { (success, error) in
+            if error == nil {
+                //发送uploaded通知
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "uploaded"), object: nil)
+                //将tabbar控制器种索引值为0的自控制器显示出来
+                self.tabBarController?.selectedIndex = 0
+                self.initView()
+
+            }
+        }
+    }
+
+    @IBAction func removeBtn_clicked(_ sender: Any) {
+        self.initView()
     }
 
 

@@ -375,11 +375,11 @@
         <scene sceneID="bhx-Hp-k9f">
             <objects>
                 <collectionViewController storyboardIdentifier="HomeVC" id="Bbq-xm-VdL" customClass="HomeVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KDo-0X-Kp9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="KDo-0X-Kp9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eHl-oB-ckK">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="eHl-oB-ckK">
                             <size key="itemSize" width="106" height="106"/>
                             <size key="headerReferenceSize" width="50" height="240"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -594,6 +594,17 @@
                                 <state key="normal" title="发 布">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="publishBtn_clicked:" destination="pUh-UI-fsO" eventType="touchUpInside" id="4WC-42-eyt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nd7-xz-Xvl">
+                                <rect key="frame" x="16" y="179" width="100" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="移 除"/>
+                                <connections>
+                                    <action selector="removeBtn_clicked:" destination="pUh-UI-fsO" eventType="touchUpInside" id="uXa-vH-zNx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -601,11 +612,14 @@
                             <constraint firstItem="sye-mA-HuR" firstAttribute="top" secondItem="Nre-5R-D6B" secondAttribute="bottom" constant="15" id="2GH-v0-i6A"/>
                             <constraint firstItem="vfa-FH-ZY9" firstAttribute="trailing" secondItem="EOF-yZ-gC1" secondAttribute="trailingMargin" id="9ue-38-aum"/>
                             <constraint firstItem="sye-mA-HuR" firstAttribute="leading" secondItem="EOF-yZ-gC1" secondAttribute="leadingMargin" id="Gxz-d7-7nN"/>
+                            <constraint firstItem="Nd7-xz-Xvl" firstAttribute="width" secondItem="sye-mA-HuR" secondAttribute="width" id="cKj-CF-2cv"/>
                             <constraint firstItem="Q80-vz-ehV" firstAttribute="top" secondItem="sye-mA-HuR" secondAttribute="top" id="eTW-D3-Toy"/>
                             <constraint firstItem="ijL-1T-lmU" firstAttribute="top" secondItem="vfa-FH-ZY9" secondAttribute="bottom" constant="15" id="iQt-uo-r6P"/>
                             <constraint firstItem="Q80-vz-ehV" firstAttribute="height" secondItem="sye-mA-HuR" secondAttribute="height" id="kW7-kA-pzN"/>
                             <constraint firstItem="Q80-vz-ehV" firstAttribute="leading" secondItem="sye-mA-HuR" secondAttribute="trailing" constant="10" id="nM6-I8-wXs"/>
+                            <constraint firstItem="Nd7-xz-Xvl" firstAttribute="centerX" secondItem="sye-mA-HuR" secondAttribute="centerX" id="o6y-Z5-4d1"/>
                             <constraint firstItem="vfa-FH-ZY9" firstAttribute="leading" secondItem="EOF-yZ-gC1" secondAttribute="leadingMargin" id="okj-yL-IbW"/>
+                            <constraint firstItem="Nd7-xz-Xvl" firstAttribute="top" secondItem="sye-mA-HuR" secondAttribute="bottom" id="sTG-2e-aOD"/>
                             <constraint firstItem="Q80-vz-ehV" firstAttribute="trailing" secondItem="EOF-yZ-gC1" secondAttribute="trailingMargin" id="xyO-QT-rwq"/>
                         </constraints>
                     </view>
@@ -613,6 +627,7 @@
                     <connections>
                         <outlet property="picImg" destination="sye-mA-HuR" id="gdS-6O-SvZ"/>
                         <outlet property="publishBtn" destination="vfa-FH-ZY9" id="aIK-gm-ppN"/>
+                        <outlet property="removeBtn" destination="Nd7-xz-Xvl" id="Hlz-lU-JFi"/>
                         <outlet property="titleText" destination="Q80-vz-ehV" id="3WX-K8-58K"/>
                     </connections>
                 </viewController>
@@ -689,7 +704,7 @@
         <scene sceneID="6Xr-rO-Oei">
             <objects>
                 <navigationController storyboardIdentifier="SignInVC" id="RQp-Z8-7D8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="chh-fp-Xmz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="chh-fp-Xmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -826,7 +841,7 @@
                 <navigationController title="主页" automaticallyAdjustsScrollViewInsets="NO" id="sUL-gI-tau" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="BRt-JJ-zh3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="997-yn-A63">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="997-yn-A63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -843,11 +858,11 @@
         <scene sceneID="Bpy-bC-zb5">
             <objects>
                 <collectionViewController storyboardIdentifier="GuestVC" id="zQH-Xy-rsd" customClass="GuestVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OzG-X6-zLf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="OzG-X6-zLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5dO-pQ-ZfM">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="5dO-pQ-ZfM">
                             <size key="itemSize" width="106" height="106"/>
                             <size key="headerReferenceSize" width="50" height="240"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1028,7 +1043,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="39k-er-jmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1IM-SF-gaS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1IM-SF-gaS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1047,7 +1062,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s4R-Xj-4ag" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发布" id="qVm-YC-EO8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOW-tO-pij">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iOW-tO-pij">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
