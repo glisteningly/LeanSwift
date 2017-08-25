@@ -34,7 +34,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         self.collectionView?.alwaysBounceVertical = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadUserInfo(notification:)), name: NSNotification.Name(rawValue: "reload"), object: nil)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(postUploaded(notification:)), name: NSNotification.Name(rawValue: "uploaded"), object: nil)
 
         loadPosts()
@@ -43,7 +43,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     func reloadUserInfo(notification: Notification) {
         collectionView?.reloadData()
     }
-    
+
     func postUploaded(notification: Notification) {
         loadPosts()
     }
@@ -69,7 +69,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     func loadPosts() {
         let query = AVQuery(className: "Posts")
-        query.whereKey("username", equalTo: AVUser.current()?.username)
+        query.whereKey("username", equalTo: AVUser.current()?.username as Any)
         query.limit = page
         query.findObjectsInBackground({ (objects: [Any]?, error: Error?) in
             if error == nil {
@@ -227,6 +227,38 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         followings.user = AVUser.current()!.username!
         followings.show = "关注"
         self.navigationController?.pushViewController(followings, animated: true)
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.height {
+            self.loadMore()
+        }
+    }
+
+    func loadMore() {
+        if page <= picArray.count {
+            page += 12
+
+            let query = AVQuery(className: "Posts")
+            query.whereKey("username", equalTo: AVUser.current()?.username! as Any)
+            query.limit = page
+            query.findObjectsInBackground({ (objects, error) in
+                if error == nil {
+                    //清空两个数组
+                    self.puuidArray.removeAll(keepingCapacity: false)
+                    self.picArray.removeAll(keepingCapacity: false)
+
+                    for object in objects! {
+                        self.puuidArray.append((object as AnyObject).value(forKey: "puuid") as! String)
+                        self.picArray.append((object as AnyObject).value(forKey: "pic") as! AVFile)
+                    }
+                    print("loaded + \(self.page)")
+                    self.collectionView?.reloadData()
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+        }
     }
 
 // MARK: UICollectionViewDelegate

@@ -10,63 +10,63 @@ import UIKit
 import AVOSCloud
 
 var guestArray = [AVUser]()
-class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
+class GuestVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     //刷新控件
     var refresher: UIRefreshControl!
     //每页载入帖子数量
     var page: Int = 12
-    
+
     var puuidArray = [String]()
     var picArray = [AVFile]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         //允许垂直的拉拽刷新操作
         self.collectionView?.alwaysBounceVertical = true
-        
+
         //设置导航栏顶部信息
         self.navigationItem.title = guestArray.last?.username
-        
+
         //定义导航栏的返回按钮
         self.navigationItem.hidesBackButton = true
         let backBtn = UIBarButtonItem(title: "返回", style: .plain, target: self, action: #selector(back(_:)))
         self.navigationItem.leftBarButtonItem = backBtn
-        
+
         //实现向右滑动返回
         let backSwipe = UISwipeGestureRecognizer(target: self, action: #selector(back(_:)))
         backSwipe.direction = .right
         self.view.addGestureRecognizer(backSwipe)
-        
+
         //安装refresher控件
         refresher = UIRefreshControl()
         refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.collectionView?.addSubview(refresher)
-        
+
         //设置集合视图的背景色为白色
         self.collectionView?.backgroundColor = .white
-        
+
         loadPosts()
     }
-    
+
     func back(_: UIBarButtonItem) {
         //退回到之前的控制器
         self.navigationController?.popViewController(animated: true)
-        
+
         //从guestArray中移除随后一个AVUser
         if !guestArray.isEmpty {
             guestArray.removeLast()
         }
     }
-    
+
     func refresh() {
         self.collectionView?.reloadData()
         self.refresher.endRefreshing()
     }
-    
+
     func loadPosts() {
         let query = AVQuery(className: "Posts")
-        query.whereKey("username", equalTo: guestArray.last?.username)
+        query.whereKey("username", equalTo: guestArray.last?.username as Any)
         query.limit = page
         query.findObjectsInBackground { (objects: [Any]?, error: Error?) in
             //查询成功
@@ -74,17 +74,17 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
                 //清空两个数组
                 self.puuidArray.removeAll(keepingCapacity: false)
                 self.picArray.removeAll(keepingCapacity: false)
-                
+
                 for object in objects! {
                     //将查询到的数据添加到数组中
                     self.puuidArray.append((object as AnyObject).value(forKey: "puuid") as! String)
                     self.picArray.append((object as AnyObject).value(forKey: "pic") as! AVFile)
                 }
-                
+
                 self.collectionView?.reloadData()
             }
                 else {
-                    print(error?.localizedDescription)
+                    print(error!.localizedDescription)
             }
         }
     }
@@ -93,7 +93,7 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     /*
     // MARK: - Navigation
 
@@ -110,13 +110,13 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 //        // #warning Incomplete implementation, return the number of sections
 //        return 0
 //    }
-    
+
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return picArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let sideLength = self.view.frame.width / 3
         let size = CGSize(width: sideLength, height: sideLength)
@@ -134,25 +134,25 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
                 print(error?.localizedDescription ?? "图片读取失败")
             }
         }
-        
+
         return cell
     }
-    
+
     //配置header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         //定义header
         let header = self.collectionView?.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! HeaderView
-        
+
         //第一步 载入访客的基本信息
         let infoQuery = AVQuery(className: "_User")
-        infoQuery.whereKey("username", equalTo: guestArray.last?.username)
+        infoQuery.whereKey("username", equalTo: guestArray.last?.username as Any)
         infoQuery.findObjectsInBackground { (objects: [Any]?, error: Error?) in
             if error == nil {
                 //判断是否有用户数据
                 guard let objects = objects, objects.count > 0 else {
                     return
                 }
-                
+
                 //找到用户相关信息
                 for object in objects {
                     header.fullnameLbl.text = ((object as AnyObject).object(forKey: "fullname") as? String)?.uppercased()
@@ -160,24 +160,24 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
                     header.bioLbl.sizeToFit()
                     header.webTxt.text = (object as AnyObject).object(forKey: "web") as? String
                     header.webTxt.sizeToFit()
-                    
+
                     let avaFile = (object as AnyObject).object(forKey: "ava") as? AVFile
                     avaFile?.getDataInBackground({ (data: Data?, error: Error?) in
                         header.avaImg.image = UIImage(data: data!)
                     })
                 }
             } else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
         }
-        
+
         //第二步 设置当前用户和访客之间的关注关系
         let followeeQuery = AVUser.current()?.followeeQuery()
         followeeQuery?.whereKey("user", equalTo: AVUser.current()!)
         followeeQuery?.whereKey("followee", equalTo: guestArray.last!)
         followeeQuery?.countObjectsInBackground({ (count: Int, error: Error?) in
-            guard error == nil else { print(error?.localizedDescription); return }
-            
+            guard error == nil else { print(error!.localizedDescription); return }
+
             if count == 0 {
                 header.button.setTitle("关注", for: .normal)
                 header.button.backgroundColor = UIColor.lightGray
@@ -186,11 +186,11 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
                 header.button.backgroundColor = UIColor.green
             }
         })
-        
+
         //第三步 计算统计数据
         //获取访客帖子数
         let postsQuery = AVQuery(className: "Posts")
-        postsQuery.whereKey("username", equalTo: guestArray.last?.username)
+        postsQuery.whereKey("username", equalTo: guestArray.last?.username as Any)
         postsQuery.countObjectsInBackground { (count: Int, error: Error?) in
             if error == nil {
                 header.posts.text = "\(count)"
@@ -210,7 +210,7 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
                 header.followings.text = "\(count)"
             }
         }
-        
+
         //实现点击事件
         //单击帖子数
         let postsTap = UITapGestureRecognizer(target: self, action: #selector(postsTap(_:)))
@@ -227,33 +227,66 @@ class GuestVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         followingsTap.numberOfTapsRequired = 1
         header.followings.isUserInteractionEnabled = true
         header.followings.addGestureRecognizer(followingsTap)
-        
-        
+
+
         return header
     }
-    
+
     func postsTap(_ recognizer: UITapGestureRecognizer) {
         if !picArray.isEmpty {
             let index = IndexPath(item: 0, section: 0)
             self.collectionView?.scrollToItem(at: index, at: .top, animated: true)
-            
+
         }
     }
-    
+
     func followersTap(_ recognizer: UITapGestureRecognizer) {
         let followers = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
         followers.user = guestArray.last!.username!
         followers.show = "关注者"
         self.navigationController?.pushViewController(followers, animated: true)
     }
-    
+
     func followingsTap(_ recognizer: UITapGestureRecognizer) {
         let followings = self.storyboard?.instantiateViewController(withIdentifier: "FollowersVC") as! FollowersVC
         followings.user = guestArray.last!.username!
         followings.show = "关注"
         self.navigationController?.pushViewController(followings, animated: true)
     }
-    
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= scrollView.contentSize.height - self.view.frame.height {
+            self.loadMore()
+        }
+    }
+
+    func loadMore() {
+        if page <= picArray.count {
+            page += 12
+
+            let query = AVQuery(className: "Posts")
+            query.whereKey("username", equalTo: guestArray.last?.username as Any)
+            query.limit = page
+            query.findObjectsInBackground({ (objects, error) in
+                if error == nil {
+                    //清空两个数组
+                    self.puuidArray.removeAll(keepingCapacity: false)
+                    self.picArray.removeAll(keepingCapacity: false)
+
+                    for object in objects! {
+                        self.puuidArray.append((object as AnyObject).value(forKey: "puuid") as! String)
+                        self.picArray.append((object as AnyObject).value(forKey: "pic") as! AVFile)
+
+                    }
+                    print("loaded + \(self.page)")
+                    self.collectionView?.reloadData()
+                } else {
+                    print(error!.localizedDescription)
+                }
+            })
+        }
+    }
+
     // MARK: UICollectionViewDelegate
 
     /*
