@@ -27,6 +27,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
         //设置refresher控件到集合视图中
         refresher = UIRefreshControl()
+        refresher.attributedTitle=NSAttributedString(string: "下拉刷新")
         refresher.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         collectionView?.addSubview(refresher)
 
