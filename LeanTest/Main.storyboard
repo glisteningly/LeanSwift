@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RQp-Z8-7D8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RQp-Z8-7D8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -375,7 +375,7 @@
         <scene sceneID="bhx-Hp-k9f">
             <objects>
                 <collectionViewController storyboardIdentifier="HomeVC" id="Bbq-xm-VdL" customClass="HomeVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="KDo-0X-Kp9">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="KDo-0X-Kp9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -704,7 +704,7 @@
         <scene sceneID="6Xr-rO-Oei">
             <objects>
                 <navigationController storyboardIdentifier="SignInVC" id="RQp-Z8-7D8" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="chh-fp-Xmz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="chh-fp-Xmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -841,7 +841,7 @@
                 <navigationController title="主页" automaticallyAdjustsScrollViewInsets="NO" id="sUL-gI-tau" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="BRt-JJ-zh3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="997-yn-A63">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="997-yn-A63">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -858,7 +858,7 @@
         <scene sceneID="Bpy-bC-zb5">
             <objects>
                 <collectionViewController storyboardIdentifier="GuestVC" id="zQH-Xy-rsd" customClass="GuestVC" customModule="LeanTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="OzG-X6-zLf">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="OzG-X6-zLf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1043,7 +1043,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="39k-er-jmT" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1IM-SF-gaS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1IM-SF-gaS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1062,7 +1062,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s4R-Xj-4ag" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="发布" id="qVm-YC-EO8"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iOW-tO-pij">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iOW-tO-pij">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
