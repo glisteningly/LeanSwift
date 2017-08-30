@@ -27,7 +27,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
         //设置refresher控件到集合视图中
         refresher = UIRefreshControl()
-        refresher.attributedTitle=NSAttributedString(string: "下拉刷新")
+        refresher.attributedTitle = NSAttributedString(string: "下拉刷新")
         refresher.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
         collectionView?.addSubview(refresher)
 
@@ -119,7 +119,7 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let sideLength = self.view.frame.width / 3
+        let sideLength = self.view.frame.width / 3 - 1
         let size = CGSize(width: sideLength, height: sideLength)
         return size
     }
@@ -261,36 +261,4 @@ class HomeVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
             })
         }
     }
-
-// MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
